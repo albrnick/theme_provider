@@ -152,10 +152,8 @@ class ThemeController extends ChangeNotifier {
   void setThemeData(String themeId, ThemeData themeData) {
     assert(_appThemes.containsKey(themeId));
 
-    final AppTheme desiredTheme = _appThemes[ themeId ];
-    AppTheme newAppTheme = desiredTheme.copyWith(id: desiredTheme.id, data: themeData);
+    _appThemes[ themeId ].data = themeData;
 
-    _appThemes[ themeId ] = newAppTheme;
     notifyListeners();
   }    
   
