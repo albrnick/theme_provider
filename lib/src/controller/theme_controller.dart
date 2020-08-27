@@ -143,6 +143,22 @@ class ThemeController extends ChangeNotifier {
   // Get id of the attached provider
   String get providerId => _providerId;
 
+  AppTheme getTheme(String themeId) {
+    assert(_appThemes.containsKey(themeId));
+
+    return( _appThemes[ themeId ]);
+  }
+
+  void setThemeData(String themeId, ThemeData themeData) {
+    assert(_appThemes.containsKey(themeId));
+
+    final AppTheme desiredTheme = _appThemes[ themeId ];
+    AppTheme newAppTheme = desiredTheme.copyWith(id: desiredTheme.id, data: themeData);
+
+    _appThemes[ themeId ] = newAppTheme;
+    notifyListeners();
+  }    
+  
   /// Cycle to next theme in the theme list.
   /// The sequence is determined by the sequence
   /// specified in the [ThemeProvider] in the [themes] parameter.
