@@ -14,7 +14,7 @@ import '../../theme_provider.dart';
 @immutable
 class AppTheme {
   /// [ThemeData] associated with the [AppTheme]
-  final ThemeData data;
+  ThemeData data;
 
   /// Passed options object. Use this object to pass
   /// additional data that should be associated with the theme.
